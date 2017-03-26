@@ -1,0 +1,236 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 dC:/Users/Enrique/Documents/Trabajo/GitHub/FPGA/DigFIR_N4/sim
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+T_opt
+Vb66CGAjLjN5YdRe]7c2b42
+04 6 9 work top_tb testbench 1
+=1-0026c7ab5a48-58d7edba-3ad-1f18
+o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+OL;O;10.2c;57
+Z1 dC:/Users/Enrique/Documents/Trabajo/GitHub/FPGA/DigFIR_N4/sim
+!s110 1490546107
+Efir_filter
+Z2 w1490546010
+Z3 DPx4 ieee 16 std_logic_signed 0 22 8FY=586_D?ni<6VI>V>_P1
+Z4 DPx4 ieee 15 std_logic_arith 0 22 I`lKR?Ob>E^B_e2VdVLiQ0
+Z5 DPx4 ieee 18 std_logic_unsigned 0 22 @_jbHPR7i^Jh?`2fDCO`m3
+Z6 DPx4 ieee 11 numeric_std 0 22 WES[o8HS0jHV[MIXQk2Ha1
+Z7 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
+Z8 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
+R1
+Z9 8../src/FIR_FILTER.vhd
+Z10 F../src/FIR_FILTER.vhd
+l0
+L33
+Vg;1lOdA`HiSG[WoDEZ7Zo3
+Z11 OL;C;10.2c;57
+32
+Z12 !s110 1490546201
+Z13 !s108 1490546201.306000
+Z14 !s90 -reportprogress|300|../src/FIR_FILTER.vhd|
+Z15 !s107 ../src/FIR_FILTER.vhd|
+Z16 tExplicit 1
+!s100 WZgJ`iWGWm^>k3=JLQNcd2
+!i10b 1
+!i111 0
+Abehavioral
+Z17 DEx4 work 8 mul16x16 0 22 W24ScSzoIlOnKUEdPldYC1
+R3
+R4
+R5
+R6
+R7
+R8
+Z18 DEx4 work 10 fir_filter 0 22 g;1lOdA`HiSG[WoDEZ7Zo3
+l65
+L41
+Vn2f2@z1a@0OfI4O[]Zh[Q3
+R11
+32
+R12
+R13
+R14
+R15
+R16
+!s100 O_9PTMLf6n^HXoBQee[6K2
+!i10b 1
+!i111 0
+Emul16x16
+Z19 w1489349265
+R3
+R4
+R5
+R6
+R7
+R8
+R1
+Z20 8../src/MUL16x16.vhd
+Z21 F../src/MUL16x16.vhd
+l0
+L36
+VW24ScSzoIlOnKUEdPldYC1
+R11
+32
+R12
+Z22 !s108 1490546201.223000
+Z23 !s90 -reportprogress|300|../src/MUL16x16.vhd|
+Z24 !s107 ../src/MUL16x16.vhd|
+R16
+!s100 I3F__RILc`zTRB__Q@0FV0
+!i10b 1
+!i111 0
+Abehavioral
+R3
+R4
+R5
+R6
+R7
+R8
+R17
+l49
+L45
+V6:DkO^7mLGF7f_l_CEKWa0
+R11
+32
+R12
+R22
+R23
+R24
+R16
+!s100 YBKob5m=eobm:1R94Igoh2
+!i10b 1
+!i111 0
+Etop
+Z25 w1490546024
+R6
+R7
+R8
+R1
+Z26 8../src/top.vhd
+Z27 F../src/top.vhd
+l0
+L34
+V9ecUMo93KDCfZnkJzd0Pe1
+R11
+32
+R12
+Z28 !s108 1490546201.390000
+Z29 !s90 -reportprogress|300|../src/top.vhd|
+Z30 !s107 ../src/top.vhd|
+R16
+!s100 6m`;]=_8YdcUi@E1l[>P53
+!i10b 1
+!i111 0
+Abehavioral
+R3
+R4
+R5
+R18
+R6
+R7
+R8
+Z31 DEx4 work 3 top 0 22 9ecUMo93KDCfZnkJzd0Pe1
+l57
+L51
+VaT1Fojg:Di@]jh;mji6<=3
+!s100 N>ZMLj=SLJhmG;V89QYiN2
+R11
+32
+R12
+R28
+R29
+R30
+R16
+!i10b 1
+!i111 0
+Etop_tb
+Z32 w1490173485
+R5
+R4
+R7
+R8
+R1
+Z33 8../sim/top_tb.vhd
+Z34 F../sim/top_tb.vhd
+l0
+L22
+VkYA4Jh^V<7b;z[;l=_B<33
+!s100 MBVOPR`E4ek5^K[zFO2B01
+R11
+32
+R12
+!i10b 1
+Z35 !s108 1490546201.477000
+Z36 !s90 -reportprogress|300|../sim/top_tb.vhd|
+Z37 !s107 ../sim/top_tb.vhd|
+!i111 0
+R16
+Atestbench
+Z38 DEx4 work 13 wavegenerator 0 22 ?dCBFFlT9bn<om2?PEL:o2
+R6
+R31
+R5
+R4
+R7
+R8
+Z39 DEx4 work 6 top_tb 0 22 kYA4Jh^V<7b;z[;l=_B<33
+l51
+L28
+Z40 V>9ZL=V?9D<ZzY9XL=@z712
+Z41 !s100 ?5X_<S8zkiDz;ncj2EGEZ2
+R11
+32
+R12
+!i10b 1
+R35
+R36
+R37
+!i111 0
+R16
+Ewavegenerator
+Z42 w1490545600
+R6
+R7
+R8
+R1
+Z43 8../src/WaveGenerator.vhd
+Z44 F../src/WaveGenerator.vhd
+l0
+L36
+V?dCBFFlT9bn<om2?PEL:o2
+R11
+32
+R12
+Z45 !s108 1490546201.143000
+Z46 !s90 -reportprogress|300|../src/WaveGenerator.vhd|
+Z47 !s107 ../src/WaveGenerator.vhd|
+R16
+!s100 7jil][_NAQB8Pa1NR1Ln23
+!i10b 1
+!i111 0
+Abehavioral
+R6
+R7
+R8
+R38
+l106
+L44
+V:Q27F>>z1D^`WCSbhIL5?2
+R11
+32
+R12
+R45
+R46
+R47
+R16
+!s100 3D1Aoe@7`>R@2@do_;Szb3
+!i10b 1
+!i111 0
