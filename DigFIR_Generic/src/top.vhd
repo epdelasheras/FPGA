@@ -33,6 +33,9 @@ use IEEE.NUMERIC_STD.ALL;
 use work.dds_synthesizer_pkg.all;
 use work.sine_lut_pkg.all;
 
+-- FIR_low_area package
+use work.fir_package.all;
+
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
 --library UNISIM;
@@ -41,10 +44,31 @@ use work.sine_lut_pkg.all;
 entity top is
   generic (
     DEBUG     : boolean := false;   -- True in Simu Only	
-	ftw_width : integer := 32
+	-- DDS Synthesizer
+	ftw_width : integer := 32;
+	-- FIR Low area
+    data_length : natural := 16;
+    bits_resol  : natural := 16;
+    taps        : natural := 15; -- order + 1	
+	hn          : COEFF_ARRAY := (-0.01259277478717816,
+                                         -0.02704833486706803,
+                                         -0.031157016036431583,
+                                         -0.0033516667471792812,
+                                         0.06651710329324828,
+                                         0.1635643048779222,
+                                         0.249729473226146,
+                                         0.2842779082622769,
+                                         0.249729473226146,
+                                         0.1635643048779222,
+                                         0.06651710329324827,
+                                         -0.0033516667471792812,
+                                         -0.031157016036431583,
+                                         -0.027048334867068043,
+                                         -0.01259277478717816,
+                                          others=>0.0)
   );
 port (  
-  CLK         : in    std_logic;  -- 200 MHz
+  CLK         : in    std_logic; -- External CLK
   RESET       : in    std_logic  -- External reset
   );
 
@@ -52,11 +76,15 @@ end top;
 
 architecture Behavioral of top is
 
+-- DDS Synthesizer
 signal ftw : std_logic_vector(ftw_width-1 downto 0);
 signal init_phase : std_logic_vector(phase_width-1 downto 0);
 signal phase_out : std_logic_vector(phase_width-1 downto 0);
 signal ampl_out : std_logic_vector(ampl_width-1 downto 0);
 
+-- FIR filter
+signal fir_out : std_logic_vector (data_length-1 downto 0);
+										  
 begin
 
 
@@ -89,6 +117,30 @@ begin
 		phase_o  => phase_out,
 		ampl_o => ampl_out
   );	
+  
+
+  --*******************************
+  -- Low Pass FIR Filter
+  --*******************************  
+  
+  UUT_FIR_low_area: ENTITY work.FIR_low_area 
+  --.............................................
+  generic map(        
+    data_length  => data_length,
+    data_signed  => false,
+    improv_t     => false,
+    bits_resol   => bits_resol,
+    taps         => taps,  
+    coefficients => hn)
+  port map(
+    areset   => RESET,
+    sreset   => '0',
+    clock_fs => CLK,
+    enable   => '1',
+    xn       => ampl_out,
+    yn       => fir_out
+    );
+  
   
 
 end Behavioral;

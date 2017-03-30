@@ -6,6 +6,7 @@ add wave -noupdate /top_tb/UUT_Top/ftw
 add wave -noupdate /top_tb/UUT_Top/init_phase
 add wave -noupdate -format Analog-Step -height 74 -max 32767.0 -min -32767.0 -radix sfixed /top_tb/UUT_Top/ampl_out
 add wave -noupdate -format Analog-Step -height 74 -max 32767.0 -min -32736.0 -radix sfixed /top_tb/UUT_Top/phase_out
+add wave -noupdate -format Analog-Step -height 74 -max 49775.0 -min 49705.0 -radix unsigned /top_tb/UUT_Top/fir_out
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {99999361 ps} 0}
 quietly wave cursor active 1

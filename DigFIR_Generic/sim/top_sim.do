@@ -14,6 +14,7 @@ vlib work
 vcom ../src/dds_synthesizer/sine_lut/sine_lut_16_x_16.vhd
 #
 vcom ../src/dds_synthesizer/dds_synthesizer.vhd
+vcom ../src/FIR_low_area.vhd
 vcom ../src/top.vhd
 vcom ../sim/top_tb.vhd
 
