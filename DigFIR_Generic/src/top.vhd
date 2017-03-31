@@ -51,21 +51,21 @@ entity top is
     bits_resol  : natural := 16;
     taps        : natural := 15; -- order + 1	
 	hn          : COEFF_ARRAY := (-0.01259277478717816,
-                                         -0.02704833486706803,
-                                         -0.031157016036431583,
-                                         -0.0033516667471792812,
-                                         0.06651710329324828,
-                                         0.1635643048779222,
-                                         0.249729473226146,
-                                         0.2842779082622769,
-                                         0.249729473226146,
-                                         0.1635643048779222,
-                                         0.06651710329324827,
-                                         -0.0033516667471792812,
-                                         -0.031157016036431583,
-                                         -0.027048334867068043,
-                                         -0.01259277478717816,
-                                          others=>0.0)
+                                  -0.02704833486706803,
+                                  -0.031157016036431583,
+                                  -0.0033516667471792812,
+                                  0.06651710329324828,
+                                  0.1635643048779222,
+                                  0.249729473226146,
+                                  0.2842779082622769,
+                                  0.249729473226146,
+                                  0.1635643048779222,
+                                  0.06651710329324827,
+                                  -0.0033516667471792812,
+                                  -0.031157016036431583,
+                                  -0.027048334867068043,
+                                  -0.01259277478717816,
+                                  others=>0.0)
   );
 port (  
   CLK         : in    std_logic; -- External CLK
@@ -99,8 +99,10 @@ begin
   -- 	*Fout = Ouput DDS sinus frequency.
   --    *ftw_with = 32 (by default)
   --    *FLCK = system clock => 200MHz
-  -- ftw=Fout*21.47 => Round to the next integer. Only valid with ftw_with = 32 and FCLK=200MHz
-  ftw <= conv_std_logic_vector(2147483,ftw_width);  --10us period @ 200MHz, ftw_width=32
+  -- ftw=Fout*21.47 => Round to the next integer. Only valid with ftw_with = 32 and FCLK=200MHz  
+  --ftw <= conv_std_logic_vector(2147483,ftw_width);  --10us-100KHz period @ 200MHz, ftw_width=32
+  ftw <= conv_std_logic_vector(214700000,ftw_width);  -- 100ns-10MHz period @ 200MHz, ftw_width=32
+  --ftw <= conv_std_logic_vector(429400000,ftw_width);  -- 50ns-20MHz period @ 200MHz, ftw_width=32
   
   -- start with 0º phase
   init_phase <= (others => '0');
@@ -127,7 +129,7 @@ begin
   --.............................................
   generic map(        
     data_length  => data_length,
-    data_signed  => false,
+    data_signed  => true,
     improv_t     => false,
     bits_resol   => bits_resol,
     taps         => taps,  
@@ -135,7 +137,7 @@ begin
   port map(
     areset   => RESET,
     sreset   => '0',
-    clock_fs => CLK,
+    clock_fs => CLK,	
     enable   => '1',
     xn       => ampl_out,
     yn       => fir_out
